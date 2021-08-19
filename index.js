@@ -7,7 +7,6 @@ module.exports = {
         'no-script-task': 'error',
         'no-send-task': 'error',
         'no-undefined-task': 'error',
-        'label-required': 'off',
         'no-type': 'error'
       }
     },
@@ -15,7 +14,6 @@ module.exports = {
       rules: {
         'no-manual-task': 'error',
         'no-undefined-task': 'error',
-        'label-required': 'off',
         'no-type': 'error'
       }
     }

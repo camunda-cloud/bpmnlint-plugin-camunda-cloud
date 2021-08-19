@@ -7,12 +7,12 @@ const getExtensionElements = require('./utils/extensionElementsHelper');
 module.exports = function() {
 
   function check(node, reporter) {
-    if (!is(node, 'bpmn:BusinessRuleTask')) {
+    if (!is(node, 'bpmn:BusinessRuleTask') && !is(node, 'bpmn:SendTask') && !is(node, 'bpmn:ServiceTask') && !is(node, 'bpmn:ScriptTask')) {
       return;
     }
 
     if (getExtensionElements(node, 'zeebe:taskDefinition').length == 0) {
-      reporter.report(node.id, 'No type added for bpmn:BusinessRuleTask. BPMN element must have a Type when automating.');
+      reporter.report(node.id, 'Property “type” is missing.');
     }
   }
 

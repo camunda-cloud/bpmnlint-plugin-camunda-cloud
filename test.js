@@ -51,7 +51,7 @@ RuleTester.verify('no-manual-task', manualTaskRule, {
       ),
       report: {
         id: 'manualTask',
-        message: 'Unsupported task type bpmn:ManualTask'
+        message: 'This Task Type cannot be executed. Click on the Wrench icon to change the type.'
       }
     }
   ]
@@ -120,13 +120,13 @@ RuleTester.verify('no-undefined-task', undefinedTaskRule, {
       ),
       report: {
         id: 'task',
-        message: 'Unsupported task type bpmn:Task'
+        message: 'This Task Type cannot be executed. Click on the Wrench icon to change the type.'
       }
     }
   ]
 });
 
-RuleTester.verify('no-type', noTypeRule, {
+RuleTester.verify('no-type-tasks', noTypeRule, {
   valid: [
     {
       moddleElement: readModdle(__dirname + '/rules/no-type/with-task-definition.bpmn'),
@@ -134,10 +134,31 @@ RuleTester.verify('no-type', noTypeRule, {
   ],
   invalid: [
     {
-      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-definition.bpmn'),
+      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-def-businessruletask.bpmn'),
       report: {
         id: 'businessRuleTask',
-        message: 'No type added for bpmn:BusinessRuleTask. BPMN element must have a Type when automating.'
+        message: 'Property “type” is missing.'
+      }
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-def-script.bpmn'),
+      report: {
+        id: 'scriptTask',
+        message: 'Property “type” is missing.'
+      }
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-def-send.bpmn'),
+      report: {
+        id: 'sendTask',
+        message: 'Property “type” is missing.'
+      }
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-def-service.bpmn'),
+      report: {
+        id: 'serviceTask',
+        message: 'Property “type” is missing.'
       }
     }
   ]
