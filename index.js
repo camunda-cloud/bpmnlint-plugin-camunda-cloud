@@ -6,13 +6,17 @@ module.exports = {
         'no-manual-task': 'error',
         'no-script-task': 'error',
         'no-send-task': 'error',
-        'no-undefined-task': 'error'
+        'no-undefined-task': 'error',
+        'label-required': 'off',
+        'no-type': 'error'
       }
     },
     zeebe_1_1: {
       rules: {
         'no-manual-task': 'error',
-        'no-undefined-task': 'error'
+        'no-undefined-task': 'error',
+        'label-required': 'off',
+        'no-type': 'error'
       }
     }
   }
