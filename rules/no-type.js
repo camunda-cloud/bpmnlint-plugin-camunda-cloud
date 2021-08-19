@@ -11,7 +11,8 @@ module.exports = function() {
       return;
     }
 
-    if (getExtensionElements(node, 'zeebe:taskDefinition').length == 0) {
+    const taskDefinition = getExtensionElements(node, 'zeebe:taskDefinition')[0] || getExtensionElements(node, 'zeebe:TaskDefinition')[0];
+    if (!taskDefinition || taskDefinition.length < 1) {
       reporter.report(node.id, 'Property “type” is missing.');
     }
   }
