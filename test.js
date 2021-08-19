@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-const { createModdle } = require('bpmnlint/lib/testers/helper');
+const { createModdle, readModdle } = require('bpmnlint/lib/testers/helper');
 
 const RuleTester = require('bpmnlint/lib/testers/rule-tester');
 
@@ -9,6 +9,7 @@ const manualTaskRule = require('./rules/no-manual-task');
 const scriptTaskRule = require('./rules/no-script-task');
 const sendTaskRule = require('./rules/no-send-task');
 const undefinedTaskRule = require('./rules/no-undefined-task');
+const noTypeRule = require('./rules/no-type');
 
 RuleTester.verify('no-business-rule-task', businessRuleTaskRule, {
   valid: [
@@ -120,6 +121,23 @@ RuleTester.verify('no-undefined-task', undefinedTaskRule, {
       report: {
         id: 'task',
         message: 'Unsupported task type bpmn:Task'
+      }
+    }
+  ]
+});
+
+RuleTester.verify('no-type', noTypeRule, {
+  valid: [
+    {
+      moddleElement: readModdle(__dirname + '/rules/no-type/with-task-definition.bpmn'),
+    }
+  ],
+  invalid: [
+    {
+      moddleElement: readModdle(__dirname + '/rules/no-type/no-task-definition.bpmn'),
+      report: {
+        id: 'businessRuleTask',
+        message: 'No type added for bpmn:BusinessRuleTask. BPMN element must have a Type when automating.'
       }
     }
   ]
