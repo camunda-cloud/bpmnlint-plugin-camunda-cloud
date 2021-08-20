@@ -7,14 +7,16 @@ module.exports = {
         'no-script-task': 'error',
         'no-send-task': 'error',
         'no-undefined-task': 'error',
-        'no-type': 'error'
+        'no-type': 'error',
+        'conditional-sequence-flows': 'error'
       }
     },
     zeebe_1_1: {
       rules: {
         'no-manual-task': 'error',
         'no-undefined-task': 'error',
-        'no-type': 'error'
+        'no-type': 'error',
+        'conditional-sequence-flows': 'error'
       }
     }
   }

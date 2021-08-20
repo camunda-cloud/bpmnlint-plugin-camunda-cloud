@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0l7t44b" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.0.0">
+  <bpmn:process id="Process_0jznnxv" isExecutable="true">
+    <bpmn:exclusiveGateway id="ExclusiveGateway" default="SequenceFlow1">
+      <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_0ormpsf">
+      <bpmn:incoming>SequenceFlow1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="ExclusiveGateway" targetRef="Event_0ormpsf" />
+    <bpmn:endEvent id="Event_0kdkxge">
+      <bpmn:incoming>SequenceFlow2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow2" sourceRef="ExclusiveGateway" targetRef="Event_0kdkxge" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0jznnxv">
+      <bpmndi:BPMNEdge id="Flow_1o5j6d7_di" bpmnElement="SequenceFlow1">
+        <di:waypoint x="205" y="150" />
+        <di:waypoint x="262" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qmevme_di" bpmnElement="SequenceFlow2">
+        <di:waypoint x="180" y="175" />
+        <di:waypoint x="180" y="260" />
+        <di:waypoint x="262" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_162bt72_di" bpmnElement="ExclusiveGateway" isMarkerVisible="true">
+        <dc:Bounds x="155" y="125" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ormpsf_di" bpmnElement="Event_0ormpsf">
+        <dc:Bounds x="262" y="132" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0kdkxge_di" bpmnElement="Event_0kdkxge">
+        <dc:Bounds x="262" y="242" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -10,6 +10,7 @@ const scriptTaskRule = require('./rules/no-script-task');
 const sendTaskRule = require('./rules/no-send-task');
 const undefinedTaskRule = require('./rules/no-undefined-task');
 const noTypeRule = require('./rules/no-type');
+const conditionalSequenceFlowsRule = require('./rules/conditional-sequence-flows.js');
 
 RuleTester.verify('no-business-rule-task', businessRuleTaskRule, {
   valid: [
@@ -159,6 +160,44 @@ RuleTester.verify('no-type-tasks', noTypeRule, {
       report: {
         id: 'serviceTask',
         message: 'Property “type” is missing.'
+      }
+    }
+  ]
+});
+
+RuleTester.verify('conditional-sequence-flows', conditionalSequenceFlowsRule, {
+  valid: [
+    {
+      moddleElement: readModdle(__dirname + '/rules/conditional-sequence-flows/valid-default-condition.bpmn')
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/conditional-sequence-flows/valid-two.bpmn')
+    }
+  ],
+  invalid: [
+    {
+      moddleElement: readModdle(__dirname + '/rules/conditional-sequence-flows/no-conditions.bpmn'),
+      report: [{
+        id: 'SequenceFlow1',
+        message: 'Property “Condition expression” is missing. Alternative: Configure this flow as the default flow. '
+      },
+      {
+       id: 'SequenceFlow2',
+       message: 'Property “Condition expression” is missing. Alternative: Configure this flow as the default flow. '
+      }]
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/conditional-sequence-flows/one-condition.bpmn'),
+      report: {
+        id: 'SequenceFlow1',
+        message: 'Property “Condition expression” is missing. Alternative: Configure this flow as the default flow. '
+      }
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/conditional-sequence-flows/default-condition.bpmn'),
+      report: {
+        id: 'SequenceFlow2',
+        message: 'Property “Condition expression” is missing. Alternative: Configure this flow as the default flow. '
       }
     }
   ]
