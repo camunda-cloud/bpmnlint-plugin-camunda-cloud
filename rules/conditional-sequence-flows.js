@@ -6,7 +6,9 @@
  module.exports = function() {
 
     function check(node, reporter) {
-
+      if (node.$type !== 'bpmn:ExclusiveGateway') {
+          return;
+      }
       if (!isConditionalForking(node)) {
         return;
       }
