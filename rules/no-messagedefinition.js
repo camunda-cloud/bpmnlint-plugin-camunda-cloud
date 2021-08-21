@@ -14,8 +14,7 @@ module.exports = function() {
       reporter.report(node.$parent.id, 'Property “Global Message“ is missing.');
     }
     if (node.messageRef && !is(node.$parent, 'bpmn:StartEvent')) {
-      const subscription = getExtensionElements(node.messageRef, 'zeebe:subscription') || getExtensionElements(node.messageRef, 'zeebe:Subscription');
-      if (!subscription || subscription.length <1) {
+      if (getExtensionElements(node.messageRef, 'zeebe:subscription').length == 0 && getExtensionElements(node.messageRef, 'zeebe:Subscription').length == 0) {
         reporter.report(node.$parent.id, 'Property “Correlation Key“ is missing.');
       }
     }
