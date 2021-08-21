@@ -8,7 +8,11 @@ module.exports = {
         'no-send-task': 'error',
         'no-undefined-task': 'error',
         'no-type': 'error',
-        'conditional-sequence-flows': 'error'
+        'conditional-sequence-flows': 'error',
+        'no-errordefinition': 'error',
+        'no-messagedefinition': 'error',
+        'no-processid': 'error',
+        'no-timerdefinition': 'error'
       }
     },
     zeebe_1_1: {
@@ -16,7 +20,11 @@ module.exports = {
         'no-manual-task': 'error',
         'no-undefined-task': 'error',
         'no-type': 'error',
-        'conditional-sequence-flows': 'error'
+        'conditional-sequence-flows': 'error',
+        'no-errordefinition': 'error',
+        'no-messagedefinition': 'error',
+        'no-processid': 'error',
+        'no-timerdefinition': 'error'
       }
     }
   }
