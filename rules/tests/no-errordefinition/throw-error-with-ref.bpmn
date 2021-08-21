@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1biixd1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.0.0">
+  <bpmn:process id="Process_0p6hnlu" isExecutable="true">
+    <bpmn:endEvent id="ErrorEvent1">
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1bvgyao" errorRef="Error_1spyjqg" />
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmn:error id="Error_18n3yoc" />
+  <bpmn:error id="Error_1spyjqg" name="Error_3fsfpvd" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0p6hnlu">
+      <bpmndi:BPMNShape id="Event_13a1bm1_di" bpmnElement="ErrorEvent1">
+        <dc:Bounds x="172" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

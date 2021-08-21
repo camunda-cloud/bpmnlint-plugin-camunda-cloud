@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1biixd1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.0.0">
+  <bpmn:process id="Process_0p6hnlu" isExecutable="true">
+    <bpmn:task id="Activity_0jao5bi" />
+    <bpmn:boundaryEvent id="BoundaryEvent1" attachedToRef="Activity_0jao5bi">
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1izq93u" messageRef="Message_1sln1b3" />
+    </bpmn:boundaryEvent>
+  </bpmn:process>
+  <bpmn:message id="Message_1sln1b3" name="Message_22qq5eh">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="abc" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0p6hnlu">
+      <bpmndi:BPMNShape id="Activity_0jao5bi_di" bpmnElement="Activity_0jao5bi">
+        <dc:Bounds x="170" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_05yy9b0_di" bpmnElement="BoundaryEvent1">
+        <dc:Bounds x="252" y="122" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

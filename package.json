@@ -1,6 +1,6 @@
 {
   "name": "@camunda-cloud/bpmnlint-plugin-camunda-cloud",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "The bpmnlint camunda-cloud plug-in",
   "main": "index.js",
   "scripts": {
