@@ -1,6 +1,6 @@
 {
   "name": "@camunda-cloud/bpmnlint-plugin-camunda-cloud",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "The bpmnlint camunda-cloud plug-in",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "plugin"
   ],
   "devDependencies": {
-    "bpmnlint": "^6.0.0",
+    "bpmnlint": "^7.2.1",
     "chai": "^4.2.0",
     "min-dash": "^3.7.0",
     "mocha": "^5.2.0"

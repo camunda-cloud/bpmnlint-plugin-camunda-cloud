@@ -177,6 +177,9 @@ RuleTester.verify('conditional-sequence-flows', conditionalSequenceFlowsRule, {
     },
     {
       moddleElement: readModdle(__dirname + '/rules/tests/conditional-sequence-flows/valid-two.bpmn')
+    },
+    {
+      moddleElement: readModdle(__dirname + '/rules/tests/conditional-sequence-flows/two-incoming-valid.bpmn')
     }
   ],
   invalid: [

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1dusgrv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.0.0">
+  <bpmn:process id="Process_0tahkru" isExecutable="true">
+    <bpmn:exclusiveGateway id="ExclusiveGateway1">
+      <bpmn:incoming>Flow_0q0wmgi</bpmn:incoming>
+      <bpmn:incoming>Flow_0sza6so</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_1klfxou">
+      <bpmn:incoming>SequenceFlow1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="ExclusiveGateway1" targetRef="Event_1klfxou" />
+    <bpmn:task id="Activity_0mxpad9">
+      <bpmn:outgoing>Flow_0q0wmgi</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0q0wmgi" sourceRef="Activity_0mxpad9" targetRef="ExclusiveGateway1" />
+    <bpmn:task id="Activity_142lura">
+      <bpmn:outgoing>Flow_0sza6so</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0sza6so" sourceRef="Activity_142lura" targetRef="ExclusiveGateway1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0tahkru">
+      <bpmndi:BPMNEdge id="Flow_0towdqv_di" bpmnElement="SequenceFlow1">
+        <di:waypoint x="425" y="120" />
+        <di:waypoint x="482" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0q0wmgi_di" bpmnElement="Flow_0q0wmgi">
+        <di:waypoint x="260" y="120" />
+        <di:waypoint x="375" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sza6so_di" bpmnElement="Flow_0sza6so">
+        <di:waypoint x="260" y="230" />
+        <di:waypoint x="400" y="230" />
+        <di:waypoint x="400" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_03h269e_di" bpmnElement="ExclusiveGateway1" isMarkerVisible="true">
+        <dc:Bounds x="375" y="95" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1klfxou_di" bpmnElement="Event_1klfxou">
+        <dc:Bounds x="482" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mxpad9_di" bpmnElement="Activity_0mxpad9">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_142lura_di" bpmnElement="Activity_142lura">
+        <dc:Bounds x="160" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

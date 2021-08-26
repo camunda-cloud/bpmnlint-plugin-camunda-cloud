@@ -14,12 +14,17 @@
       }
 
       const outgoing = node.outgoing || [];
+      const incoming = node.incoming || [];
 
       outgoing.forEach((flow) => {
-        const missingCondition = (
+        let missingCondition = (
           !hasCondition(flow) &&
           !isDefaultFlow(node, flow)
         );
+
+        if (outgoing.length == 1 && incoming.length > 1) {
+            missingCondition = false;
+        }
 
         if (missingCondition) {
           reporter.report(flow.id, 'Property “Condition expression” is missing. Alternative: Configure this flow as the default flow. ');
