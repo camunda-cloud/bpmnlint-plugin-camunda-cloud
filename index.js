@@ -12,7 +12,8 @@ module.exports = {
         'no-errordefinition': 'error',
         'no-messagedefinition': 'error',
         'no-processid': 'error',
-        'no-timerdefinition': 'error'
+        'no-timerdefinition': 'error',
+        'no-user-task': 'error'
       }
     },
     zeebe_1_1: {
