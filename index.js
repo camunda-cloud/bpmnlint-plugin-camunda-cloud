@@ -27,6 +27,17 @@ module.exports = {
         'no-processid': 'error',
         'no-timerdefinition': 'error'
       }
+    },
+    zeebe_1_2: {
+      rules: {
+        'no-undefined-task': 'error',
+        'no-type': 'error',
+        'conditional-sequence-flows': 'error',
+        'no-errordefinition': 'error',
+        'no-messagedefinition': 'error',
+        'no-processid': 'error',
+        'no-timerdefinition': 'error'
+      }
     }
   }
 }
