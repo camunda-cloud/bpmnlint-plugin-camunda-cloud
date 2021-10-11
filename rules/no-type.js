@@ -1,14 +1,24 @@
 const {
-  is
+  is, isAny
 } = require('bpmnlint-utils');
 
 const getExtensionElements = require('./utils/extensionElementsHelper');
 
+const messageElements = ['bpmn:EndEvent', 'bpmn:IntermediateThrowEvent']
+const servicTaskLike = ['bpmn:BusinessRuleTask', 'bpmn:SendTask', 'bpmn:ServiceTask', 'bpmn:ScriptTask', ...messageElements]
+
 module.exports = function() {
 
   function check(node, reporter) {
-    if (!is(node, 'bpmn:BusinessRuleTask') && !is(node, 'bpmn:SendTask') && !is(node, 'bpmn:ServiceTask') && !is(node, 'bpmn:ScriptTask')) {
+    if (!isAny(node, servicTaskLike)) {
       return;
+    }
+
+    if (isAny(node, messageElements)) {
+      // check if the element has a message definition, other wise it's not a service task like
+      if (!node.eventDefinitions || !node.eventDefinitions.some((eventDefinition) => is(eventDefinition, 'bpmn:MessageEventDefinition'))) {
+        return;
+      }
     }
 
     const taskDefinition = getExtensionElements(node, 'zeebe:taskDefinition')[0] || getExtensionElements(node, 'zeebe:TaskDefinition')[0];

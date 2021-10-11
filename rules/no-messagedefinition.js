@@ -10,6 +10,13 @@ module.exports = function() {
       return;
     }
 
+    let parent = node.$parent;
+    if (is(parent, 'bpmn:IntermediateThrowEvent') || is(parent, 'bpmn:EndEvent')) {
+      // message throw events are service task likes and need a type and not a message
+      return;
+    }
+
+
     if (!node.messageRef) {
       reporter.report(node.$parent.id, 'Property “Global Message“ is missing.');
     }
